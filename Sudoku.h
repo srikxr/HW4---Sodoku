@@ -4,7 +4,7 @@ using namespace std;
 
 class Sudoku : public Puzzle {
   private:
-    map<pair<int,int>, int> grid;
+    int grid[9][9];
   public:
     Sudoku();
     ~Sudoku();

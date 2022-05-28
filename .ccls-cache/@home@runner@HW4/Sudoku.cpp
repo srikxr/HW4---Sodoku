@@ -1,7 +1,7 @@
 #include "Sudoku.h"
 #include <iostream>
 
-Sudoku(){
+Sudoku:: Sudoku(){
   
 }
 
@@ -31,4 +31,4 @@ ostream& operator<<(ostream& output) {
       
     }
   }
-}
+} 
