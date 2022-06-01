@@ -11,6 +11,8 @@ class Sudoku : public Puzzle {
 
     bool isValidChar(char c);
 
-    friend istream& operator>>(istream& input);
-    friend ostream& operator<<(ostream& output);
+    friend void operator<<(istream &sudokuNums, Sudoku* curSudoku);
+    friend ostream &operator<<(ostream &output, Sudoku* curSudoku);
+    //friend istream& operator>>(istream& input);
+    //friend ostream& operator<<(ostream& output);
 }

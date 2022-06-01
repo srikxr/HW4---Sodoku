@@ -1,34 +1,47 @@
+
 #include "Sudoku.h"
+
 #include <iostream>
 
-Sudoku:: Sudoku(){
+Sudoku::Sudoku() {
   
 }
 
-//bool isValidChar(char c) {};
-
-void operator << (istream sudokuNums){
+void operator<<(istream &sudokuNums, Sudoku *curSudoku) {
   int x = 0;
   int y = 0;
-  while(sudokuNums){
-    for(int i = 0; i < 9; i++){
-      //nextC = next character in text
-      //char c
-      // for(...) { if(isValidChar(c)) {grid.insert(pair<pair<int, int>, int> ((x,y),   nextC)) }}
-      grid.insert(pair<pair<int, int>, int> ((x,y), nextC))
+  char c;
+
+  while (sudokuNums && y <= 9) {
+    if (x > 9) {
+      y++;
+      x = 0;
+    }
+    c = sudokuNums.get();
+    if (isdigit(c)) {
+      curSudoku->grid[x][y] = c;
       x++;
     }
-    y++;
   }
 }
 
-ostream& operator<<(ostream& output) {
-  string format = " +------+------+------+\n";
+
+ostream &operator<<(ostream &output, Sudoku *curSudoku) {
+  string format = "+-------+-------+-------+\n";
   cout << format;
-  for (int i=0; i<9; i++) {
-    cout << "|"; //places at the start
-    for (int x=0; x<9; x++) {
-      
+  for (int i = 0; i < 9; i++) {
+    cout << '|';
+    for (int j = 0; j < 9; j++) {
+      cout << " " << curSudoku->grid[i][j];
+      if (j % 3 == 2) {
+        cout << " " << '|';
+      }
+    }
+    if (i % 3 == 2) {
+      cout << '\n' << format;
+    } else {
+      cout << '\n';
     }
   }
-} 
+}
+}
