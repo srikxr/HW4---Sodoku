@@ -1,3 +1,4 @@
+#pragma once
 #include "Puzzle.h"
 #include <map>
 using namespace std;
@@ -5,14 +6,16 @@ using namespace std;
 class Sudoku : public Puzzle {
   private:
     int grid[9][9];
+    int x;
+    int y;
   public:
     Sudoku();
     ~Sudoku();
 
-    bool isValidChar(char c);
+    int getValue(int, int);
+    void setValue(int, int, int);
 
-    friend void operator<<(istream &sudokuNums, Sudoku* curSudoku);
-    friend ostream &operator<<(ostream &output, Sudoku* curSudoku);
-    //friend istream& operator>>(istream& input);
-    //friend ostream& operator<<(ostream& output);
-}
+
+    void operator>>(istream &sudokuNums);
+    ostream &operator<<(ostream &output);
+};

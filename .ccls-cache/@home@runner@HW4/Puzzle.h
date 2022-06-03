@@ -9,6 +9,6 @@ class Puzzle{
 
   public:
     virtual ~Puzzle();
-    friend ostream &operator<<(ostream &out, const Puzzle &puzzle);
-    friend istream &operator>>(istream &in, Puzzle &puzzle);
+    virtual ostream &operator<<(ostream &out);
+    virtual void operator>>(istream &in);
 };

@@ -3,11 +3,16 @@
 
 #include <iostream>
 
-Sudoku::Sudoku() {
-  
+Sudoku::Sudoku() {}
+
+int Sudoku::getValue(int x, int y){
+  return grid[x][y];
+}
+void Sudoku:: setValue(int x, int y, int value){
+  grid[x][y] = value;
 }
 
-void operator<<(istream &sudokuNums, Sudoku *curSudoku) {
+void Sudoku::operator>>(istream &sudokuNums) {
   int x = 0;
   int y = 0;
   char c;
@@ -19,29 +24,28 @@ void operator<<(istream &sudokuNums, Sudoku *curSudoku) {
     }
     c = sudokuNums.get();
     if (isdigit(c)) {
-      curSudoku->grid[x][y] = c;
+      grid[x][y] = c;
       x++;
     }
   }
 }
 
-
-ostream &operator<<(ostream &output, Sudoku *curSudoku) {
+ostream &Sudoku::operator<<(ostream &output) {
   string format = "+-------+-------+-------+\n";
-  cout << format;
+  output << format;
   for (int i = 0; i < 9; i++) {
-    cout << '|';
+    output << '|';
     for (int j = 0; j < 9; j++) {
-      cout << " " << curSudoku->grid[i][j];
+      output << " " << grid[i][j];
       if (j % 3 == 2) {
-        cout << " " << '|';
+        output << " " << '|';
       }
     }
     if (i % 3 == 2) {
-      cout << '\n' << format;
+      output << '\n' << format;
     } else {
-      cout << '\n';
+      output << '\n';
     }
   }
-}
+  return output;
 }

@@ -1,4 +1,7 @@
+#pragma once
+
 #include "Fitness.h"
+#include "PuzzleFactory.h"
 using namespace std;
 
 class Population{
@@ -8,4 +11,7 @@ class Population{
       virtual int bestFitness() = 0;
 
       Population() = default;
-}
+protected:
+  Fitness* fitness;
+  PuzzleFactory* puzzlefactory;
+};

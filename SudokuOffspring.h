@@ -1,11 +1,13 @@
 #pragma once
 #include "Reproduction.h"
+#include "Sudoku.h"
 
-#include <memory>
 using namespace std;
 
 class SudokuOffspring : public Reproduction {
 public:
-    Puzzle* makeOffspring(Puzzle* p) override;
+    Puzzle* makeOffspring(Puzzle &puzzle);
+    SudokuOffspring(Sudoku &puzzle);
+    bool valueChange[9][9];
 };
 

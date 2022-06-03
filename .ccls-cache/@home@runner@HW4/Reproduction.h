@@ -8,4 +8,4 @@ class Reproduction {
 public:
     virtual Puzzle* makeOffspring(Puzzle* &p) = 0;
     virtual ~Reproduction() = default;
-};
+}; 
