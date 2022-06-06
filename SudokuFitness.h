@@ -8,5 +8,6 @@
 using namespace std;
 
 class SudokuFitness : public Fitness{
-  int howFit(Puzzle&);
-}
+public:
+  int howFit(Puzzle& puzzle);
+};

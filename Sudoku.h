@@ -11,7 +11,7 @@ class Sudoku : public Puzzle {
   public:
     Sudoku();
     ~Sudoku();
-
+    
     int getValue(int, int);
     void setValue(int, int, int);
 

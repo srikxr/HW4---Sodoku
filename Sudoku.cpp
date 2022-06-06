@@ -3,7 +3,13 @@
 
 #include <iostream>
 
-Sudoku::Sudoku() {}
+Sudoku::Sudoku() {
+  
+}
+
+Sudoku::~Sudoku(){
+  
+}
 
 int Sudoku::getValue(int x, int y){
   return grid[x][y];

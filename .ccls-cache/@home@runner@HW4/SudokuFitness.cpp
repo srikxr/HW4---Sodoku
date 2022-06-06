@@ -10,7 +10,7 @@ int SudokuFitness::howFit(Puzzle &puzzle) {
     for (int j = 0; j < 9; j++) {
       int curVal = sudoku.getValue(i, j);
       if (find(begin(existValues), end(existValues), curVal) ==
-          end(existValues)) {
+          end(existValues) && curVal != 0) {
         existValues.push_back(curVal);
       } else {
         fitness++;

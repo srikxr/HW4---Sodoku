@@ -8,6 +8,7 @@ class Puzzle{
     // virtual ostream &output(ostream &out) const = 0;
 
   public:
+    
     virtual ~Puzzle();
     virtual ostream &operator<<(ostream &out);
     virtual void operator>>(istream &in);

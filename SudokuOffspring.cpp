@@ -34,13 +34,13 @@ Puzzle *SudokuOffspring::makeOffspring(Puzzle &puzzle) {
   // creating new sudoku puzzle.
   Sudoku *newPuzzle = new Sudoku();
 
-  const int probability = 5;    //this variable isnt used anywhere
+  const int probability = 5;    
   
   // copy the old puzzle to new puzzle and mutating the value by using the
   // rand() value.
   for (int i = 0; i < 9; i++) {
     for (int j = 0; j < 9; j++) {
-      if ((valueChange[i][j] == false) && (rand() % 100 < 5)) {
+      if ((valueChange[i][j] == false) && (rand() % 100 < probability)) {
         newPuzzle->setValue(i, j, (rand() % 9 + 1));
       } else {
         int curIndex = sudokupuzzle.getValue(i, j);
