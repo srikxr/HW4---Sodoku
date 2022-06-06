@@ -9,15 +9,10 @@ int main(int argc, char *argv[]) {
   //int maxGeneration = atoi(argv[2]);
   cout << "Enter the Sudoku Input with 0's representing blank spaces: ";
 
-  string file;
-  cin >> file;
-
   Sudoku test;
-  test >> cin;
-
+  cin >> test;
   
-  
-  //cout << test;
+  cout << test;
 
   // Sudoku* testpuzzle = new Sudoku();
 

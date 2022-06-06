@@ -1,13 +1,6 @@
 #include "Puzzle.h"
-#include <iostream>
-using namespace std;
 
-Puzzle::~Puzzle() {}
+Puzzle::Puzzle(){}
 
-ostream& Puzzle::operator<<(ostream &out) {
-  return out;
-}
+Puzzle::~Puzzle(){}
 
-void Puzzle::operator>>(istream &in){
-  
-  }

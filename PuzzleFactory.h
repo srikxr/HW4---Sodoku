@@ -6,7 +6,8 @@ using namespace std;
 
 class PuzzleFactory{
   public:
-    virtual Puzzle* createPuzzle(Puzzle* &p);
+    virtual Puzzle* createPuzzle(Puzzle* &p) = 0;
+    virtual ~PuzzleFactory(){};
 
 protected:
   Reproduction* reproduction;

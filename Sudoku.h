@@ -4,18 +4,16 @@
 using namespace std;
 
 class Sudoku : public Puzzle {
-  private:
-    int grid[9][9];
-    int x;
-    int y;
   public:
     Sudoku();
     ~Sudoku();
-    
+
+    int grid[9][9];  //return to private
+
     int getValue(int, int);
     void setValue(int, int, int);
 
 
-    void operator>>(istream &sudokuNums);
-    ostream &operator<<(ostream &output);
+    friend void operator>>(istream &sudokuNums, Sudoku&);
+    friend ostream &operator<<(ostream &output, Sudoku&);
 };

@@ -5,5 +5,5 @@
 class Fitness {
 public: 
     virtual int howFit(Puzzle &puzzle) = 0;
-    virtual ~Fitness() = default;
+    virtual ~Fitness(){};
 };

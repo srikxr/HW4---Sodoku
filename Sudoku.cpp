@@ -4,7 +4,9 @@
 #include <iostream>
 
 Sudoku::Sudoku() {
-  
+  // for(int i = 0; i < 9; i++){
+  //   for(int )
+  // }
 }
 
 Sudoku::~Sudoku(){
@@ -18,31 +20,31 @@ void Sudoku:: setValue(int x, int y, int value){
   grid[x][y] = value;
 }
 
-void Sudoku::operator>>(istream &sudokuNums) {
+void operator>>(istream &sudokuNums, Sudoku& sudoku) {
   int x = 0;
   int y = 0;
   char c;
 
-  while (sudokuNums && y <= 9) {
+  while (y <= 9) {  //error here?
     if (x > 9) {
       y++;
       x = 0;
     }
     c = sudokuNums.get();
     if (isdigit(c)) {
-      grid[x][y] = c;
+      sudoku.grid[x][y] = c;
       x++;
     }
   }
 }
 
-ostream &Sudoku::operator<<(ostream &output) {
+ostream& operator<<(ostream &output, Sudoku& sudoku) {
   string format = "+-------+-------+-------+\n";
   output << format;
   for (int i = 0; i < 9; i++) {
     output << '|';
     for (int j = 0; j < 9; j++) {
-      output << " " << grid[i][j];
+      output << " " << sudoku.grid[i][j];
       if (j % 3 == 2) {
         output << " " << '|';
       }

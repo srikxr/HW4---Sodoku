@@ -2,8 +2,9 @@
 #include "SudokuOffspring.h"
 
 
-Puzzle* SudokuFactory:: createPuzzle(Puzzle* &p){
-   return reproduction->makeOffspring(p);
+Puzzle* SudokuFactory::createPuzzle(Puzzle& p){
+  Sudoku sudoku = dynamic_cast<Sudoku&>(p);
+   return reproduction->makeOffspring(sudoku);
 }
 
 //new generation calls sudokufoctary();
