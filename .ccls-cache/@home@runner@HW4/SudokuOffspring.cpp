@@ -26,12 +26,14 @@ SudokuOffspring::SudokuOffspring(Puzzle &puzzle) {
   }
 }
 
-Puzzle *SudokuOffspring::makeOffspring(Puzzle &puzzle) {
+Sudoku* SudokuOffspring::makeOffspring(Puzzle &puzzle) {
   // dynamic casting.
+  Sudoku sudokupuzzle = dynamic_cast<Sudoku &>(puzzle);
+  
   // first know the values that need to be changed by using 2d array[][] of bool
   // or vector; then create a new sudoku puzzle; copy the old puzzle to new
   // puzzle; then check to see if the puzzle is going to
-  Sudoku sudokupuzzle = dynamic_cast<Sudoku &>(puzzle);
+  
 
   // creating new sudoku puzzle.
   Sudoku *newPuzzle = new Sudoku();

@@ -1,14 +1,12 @@
-#pragma once
-#include "Puzzle.h"
 #include "Reproduction.h"
-
-using namespace std;
+#pragma once
 
 class PuzzleFactory{
+  protected:
+    Reproduction* rep;
   public:
-    virtual Puzzle* createPuzzle(Puzzle* &p) = 0;
-    virtual ~PuzzleFactory(){};
+    PuzzleFactory();
+    virtual ~PuzzleFactory();
 
-protected:
-  Reproduction* reproduction;
+    virtual Puzzle* createPuzzle(Puzzle&) = 0;
 };

@@ -13,12 +13,12 @@
 
 //generates the number of sudokus from the populationsize.
 // it needs to fill the sudokus with o 
-SudokuPopulation::SudokuPopulation(int popSize, Sudoku* sudoku){
+SudokuPopulation::SudokuPopulation(int popSize, Puzzle* sudoku){
+  
   populationSize = popSize;
   for(int i =0; i < populationSize; i++){
-    Sudoku* populationPuzzle = puzzlefactory->createPuzzle(sudoku); //fix
-    int sudFit = sudokuFit->howFit(populationPuzzle);
-    sudokuMembers.push(make_pair(populationPuzzle, fitness->howFit(populationPuzzle)));
+    Puzzle* populationPuzzle = puzzlefactory->createPuzzle(sudoku); //fix
+    int sudFit = sudokuFit->howFit(*populationPuzzle);
   }
 }
 

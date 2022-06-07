@@ -1,25 +1,42 @@
 #pragma once
-#include "Sudoku.h"
 #include "Population.h"
+#include "SudokuFactory.h"
 #include "SudokuFitness.h"
-#include <queue>
-using namespace std;
+#include "SudokuOffspring.h"
 
-struct compare{
-  bool operator()(Sudoku& a, Sudoku& b){
-    SudokuFitness* sudFit;
-    return sudFit->howFit(a) < sudFit->howFit(b);
+struct compare {
+  bool operator()(Puzzle &a, Puzzle &b) {
+    Fitness fit;
+    return fit.howFit(a) < fit.howFit(b);
   }
 };
 
 class SudokuPopulation : public Population {
 private:
-  priority_queue<Sudoku*, vector<Sudoku*>, compare> sudokuMembers;
-    SudokuFitness* sudokuFit;
+  SudokuFitness* fitness;
+  SudokuFactory* factory;
+  SudokuOffspring* reproduction; 
+
+  bool fixedValue[9][9];
+
+  int popSize;
+
+  // priority_queue<Puzzle *, vector<Puzzle *>, compare> members;
+priority_queue<Puzzle, vector<Puzzle>, compare> members;
+
 public:
-      SudokuPopulation(int populationSize, Sudoku* sudoku);
-      void cull(double percent) override;
-      void newGeneration() override;
-      int bestFitness() override;
-      Puzzle* bestIndividual() override;
+  // SudokuPopulation(int population, int generations, Puzzle &puzzle);
+  SudokuPopulation(int population, int generations, Sudoku* sudoku);
+
+  priority_queue<Puzzle, vector<Puzzle>, compare> getMembers();
+
+  SudokuFitness* getFitness();
+  SudokuFactory* getFactory();
+  SudokuOffspring* getReproduction();
+  
+
+  void cull(int) override;
+  void newGeneration() override;
+  int bestFitness() override;
+  Puzzle *bestIndividual() override;
 };

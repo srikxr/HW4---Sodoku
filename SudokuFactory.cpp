@@ -1,15 +1,11 @@
 #include "SudokuFactory.h"
-#include "SudokuOffspring.h"
 
-
-Puzzle* SudokuFactory::createPuzzle(Puzzle& p){
-  Sudoku sudoku = dynamic_cast<Sudoku&>(p);
-   return reproduction->makeOffspring(sudoku);
+SudokuFactory::SudokuFactory() {
+  SudokuOffspring* sudOff = new SudokuOffspring();
+  rep = sudOff;
 }
 
-//new generation calls sudokufoctary();
-//to reproduce 100 out of 10;
-
-SudokuFactory::SudokuFactory(SudokuOffspring &sudokuoffspring){
-  reproduction = &sudokuoffspring;
+Sudoku* SudokuFactory::createPuzzle(Puzzle& puzzle) {
+  Sudoku sudoku = dynamic_cast<Sudoku&>(puzzle);
+  return dynamic_cast<Sudoku*>(rep->makeOffspring(sudoku));
 }

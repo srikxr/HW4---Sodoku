@@ -3,7 +3,7 @@
 #include "Puzzle.h"
 
 class Fitness {
-public: 
-    virtual int howFit(Puzzle &puzzle) = 0;
-    virtual ~Fitness(){};
+public:
+  virtual ~Fitness(){};
+  virtual int howFit(const Puzzle &puzzle) const = 0;
 };

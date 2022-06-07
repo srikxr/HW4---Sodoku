@@ -1,5 +1,5 @@
 #include "SudokuFitness.h"
-
+// changing it *
 int SudokuFitness::howFit(Puzzle &puzzle) {
   Sudoku sudoku = dynamic_cast<Sudoku &>(puzzle);
   int fitness = 0;

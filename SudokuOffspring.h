@@ -2,12 +2,13 @@
 #include "Reproduction.h"
 #include "Sudoku.h"
 
-using namespace std;
-
 class SudokuOffspring : public Reproduction {
-public:
-    SudokuOffspring(Puzzle &puzzle);
-    Puzzle* makeOffspring(Puzzle &puzzle);
-    bool valueChange[9][9];
-};
+private:
+  bool valueChange[9][9];
+  void checkFixed(Sudoku &);
+  int probability = 100;
 
+public:
+  Sudoku *makeOffspring(const Puzzle &) override;
+  void setProb(int);
+};

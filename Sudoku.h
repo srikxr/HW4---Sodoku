@@ -1,19 +1,20 @@
 #pragma once
 #include "Puzzle.h"
-#include <map>
 using namespace std;
 
+
 class Sudoku : public Puzzle {
-  public:
-    Sudoku();
-    ~Sudoku();
+private:
+  int grid[9][9];
+  bool fixedValue[9][9];
+public:
+  Sudoku();
+  ~Sudoku();
 
-    int grid[9][9];  //return to private
+  bool getFixedValue(int, int);
+  int getValue(int, int);
+  void setValue(int, int, int);
 
-    int getValue(int, int);
-    void setValue(int, int, int);
-
-
-    friend void operator>>(istream &sudokuNums, Sudoku&);
-    friend ostream &operator<<(ostream &output, Sudoku&);
+  void read(string) override;
+  ostream &print(ostream&) override;
 };

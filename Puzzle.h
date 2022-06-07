@@ -1,10 +1,14 @@
 #include <iostream>
 #pragma once
+
 using namespace std;
 
 class Puzzle{
   public:
-    virtual ~Puzzle(){};
-    friend ostream &operator<<(ostream &out, Puzzle&);
-    friend void operator>>(istream &in, Puzzle&);
+    ~Puzzle(){};
+    void operator<<(ostream&);
+    friend void operator>>(istream&, Puzzle*);
+
+    virtual void read(string) = 0;
+    virtual ostream& print(ostream&) = 0;
 };

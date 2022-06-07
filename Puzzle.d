@@ -1,1 +1,1 @@
-Puzzle.o Puzzle.d : Puzzle.cpp
+Puzzle.o Puzzle.d : Puzzle.cpp Puzzle.h

@@ -1,27 +1,29 @@
+#include "Fitness.h"
+#include "Puzzle.h"
+#include "PuzzleFactory.h"
+#include "Reproduction.h"
+#include <queue>
+#include <vector>
+
 #pragma once
 
-#include "Fitness.h"
-#include "PuzzleFactory.h"
-using namespace std;
+class Population {
+private:
+  Fitness *fitness;
+  PuzzleFactory *factory;
+  Reproduction *reproduction;
 
+// protected:
+//   int popSize;
 
+//   priority_queue<Puzzle *, vector<Puzzle *>, compare> members;
 
-class Population{
-  public:
-      virtual void cull(double percent) = 0;
-      virtual void newGeneration() = 0;
-      virtual int bestFitness() = 0;
-      virtual Puzzle* bestIndividual() = 0;
-      
-      Population() = default;
-      virtual ~Population(){};
+public:
+  Population();
+  virtual ~Population();
 
-protected:
-  Fitness* fitness;
-  PuzzleFactory* puzzlefactory;
-  int populationSize;
-//   struct compare
-// {
-//   bool operator(Sudoku& a,Sudoku& b);
-// };
+  virtual void cull(int) = 0;
+  virtual void newGeneration() = 0;
+  virtual int bestFitness() = 0;
+  virtual Puzzle *bestIndividual() = 0;
 };
